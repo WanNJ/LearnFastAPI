@@ -18,7 +18,7 @@ def query_by_country(
     country: str,
     skip: int = 0,
     limit: int = 10,
-    db: SessionLocal = Depends(get_postgres_db)
+    db: SessionLocal = Depends(get_postgres_db),
 ):
     """This API queries the Pyxis database by country name.
 

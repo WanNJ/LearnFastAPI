@@ -1,13 +1,14 @@
-from typing import Annotated
 from geoalchemy2.types import WKBElement
-from geoalchemy2.shape import to_shape   
+from geoalchemy2.shape import to_shape
 from pydantic import BaseModel, Field, field_serializer
 
 
 class ZhanFieldSchema(BaseModel):
-    id: int  = Field(description="Field ID")
+    id: int = Field(description="Field ID")
     id_field: int = Field(description="Field ID")
-    geometry: WKBElement | str = Field(description="The string representation of the field geometry.")
+    geometry: WKBElement | str = Field(
+        description="The string representation of the field geometry."
+    )
     product_ty: str | None = Field(description="Production type, oil or field.")
     number: int
     n_fldname: str | None = Field(description="Name of the field.")
@@ -27,6 +28,6 @@ class ZhanFieldSchema(BaseModel):
         orm_mode = True
         arbitrary_types_allowed = True  # This is to avoid error created by Pydantic not able to recognize WKBElement as a type.
 
-    @field_serializer('geometry')
+    @field_serializer("geometry")
     def serialize_geometry(self, geometry: WKBElement):
         return to_shape(geometry).wkt
