@@ -7,7 +7,7 @@ name = "pypi"
 uvicorn = {extras = ["standard"], version = "*"}
 fastapi = {extras = ["all"], version = "*"}
 sqlalchemy = "*"
-geoalchemy2 = "*"
+geoalchemy2 = {extras = ["shapely"], version = "*"}
 psycopg2 = "*"
 python-dotenv = "*"
 
