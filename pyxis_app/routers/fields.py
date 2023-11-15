@@ -15,6 +15,10 @@ router = APIRouter(
 
 @router.get("/query_by_country/", response_model=list[ZhanFieldSchema])
 def query_by_country(country: str, db: SessionLocal = Depends(get_postgres_db)):
+    """This API queries the Pyxis database by country name.
+
+    Please make sure the first letter is capitalized.
+    For example, `China` instead of `china`."""
     country_name = country
 
     # Query the database for records with the specified country name

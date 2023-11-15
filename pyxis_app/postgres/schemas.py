@@ -3,7 +3,7 @@ from pydantic import BaseModel
 
 class ZhanFieldSchema(BaseModel):
     id: int
-    id_field: float
+    id_field: int
     # geometry: str # TODO: Find the right type for this one.
     product_ty: str | None = None
     number: float

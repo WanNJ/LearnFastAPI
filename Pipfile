@@ -10,9 +10,9 @@ sqlalchemy = "*"
 geoalchemy2 = "*"
 psycopg2 = "*"
 python-dotenv = "*"
-black = "*"
 
 [dev-packages]
+black = "*"
 
 [requires]
 python_version = "3.11"
